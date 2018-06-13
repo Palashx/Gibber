@@ -9,6 +9,7 @@
 	</script>
 
 	<script type="text/paperscript" canvas="myCanvas">
+<<<<<<< HEAD
 		var text = new PointText(new Point(view.size.width/2, view.size.height/2));
 		text.justification = 'center';
 		text.fillColor = 'red';
@@ -16,6 +17,9 @@
 		text.fontWeight = 'bold';
 		text.content = 'Press a key in between a to z!!';
 		
+=======
+		<!-- making an object that contains all keys, and assigning sound and color to each key. -->
+>>>>>>> d92d63f3471f18015e96b568eba7a1cc64624aa7
 		var keyData = {
 			a: {
 				color: randomrgb(),
@@ -200,9 +204,9 @@
 			}
 		}
 
-		var circles = [];
+		var circles = [];   <!-- creating an array to store individual circles -->
 
-
+	
 		function onKeyDown(event) {
 			<!-- Creating a random point for cirle	 -->
 			if(keyData[event.key]){
@@ -218,8 +222,8 @@
 		}
 			
 		function onFrame(event) {
-					<!-- // Each frame, change the fill color of the path slightly by adding 1 to its hue: -->
-					 
+					<!--  Each frame, change the fillCcolor slightly by adding 1 to its hue: -->
+					<!-- Iterating over the array containing all circles -->
 					for (var i = 0; i < circles.length; i++){
 						circles[i].fillColor.hue += 1;
 						circles[i].scale(.95);
@@ -242,7 +246,7 @@
 </head>
 <body>
 	<canvas id="myCanvas" resize></canvas>
-	<script type="text/javascript" src="Gibber.js"></script>
+	<!-- <script type="text/javascript" src="Gibber.js"></script> -->
 </body>
 </html>
 
