@@ -9,185 +9,191 @@
 	</script>
 
 	<script type="text/paperscript" canvas="myCanvas">
+		var text = new PointText(new Point(view.size.width/2, view.size.height/2));
+		text.justification = 'center';
+		text.fillColor = 'red';
+		text.fontSize = 25;
+		text.fontWeight = 'bold';
+		text.content = 'Press a key in between a to z!!';
 		
 		var keyData = {
 			a: {
-				color: "purple",
+				color: randomrgb(),
 				sound: new Howl({
 				src: ['Sounds/1.mp3']
 				})
 			},
 
 			b: {
-				color: "purple",
+				color: randomrgb(),
 				sound: new Howl({
 				src: ['Sounds/1.mp3']
 				})
 			},
 
 			c: {
-				color: "red",
+				color: randomrgb(),
 				sound: new Howl({
 				src: ['Sounds/1.mp3']
 				})
 			},
 
 			d: {
-				color: "brown",
+				color: randomrgb(),
 				sound: new Howl({
 				src: ['Sounds/1.mp3']
 				})
 			},
 
 			e: {
-				color: "red",
+				color: randomrgb(),
 				sound: new Howl({
 				src: ['Sounds/1.mp3']
 				})
 			},
 
 			f: {
-				color: "green",
+				color: randomrgb(),
 				sound: new Howl({
 				src: ['Sounds/1.mp3']
 				})
 			},
 
 			g: {
-				color: "orange",
+				color: randomrgb(),
 				sound: new Howl({
 				src: ['Sounds/1.mp3']
 				})
 			},
 
 			h: {
-				color: "blue",
+				color: randomrgb(),
 				sound: new Howl({
 				src: ['Sounds/2.mp3']
 				})
 			},
 
 			i: {
-				color: "blue",
+				color: randomrgb(),
 				sound: new Howl({
 				src: ['Sounds/2.mp3']
 				})
 			},
 
 			j: {
-				color: "red",
+				color: randomrgb(),
 				sound: new Howl({
 				src: ['Sounds/2.mp3']
 				})
 			},
 
 			k: {
-				color: "purple",
+				color: randomrgb(),
 				sound: new Howl({
 				src: ['Sounds/2.mp3']
 				})
 			},
 
 			l: {
-				color: "purple",
+				color: randomrgb(),
 				sound: new Howl({
 				src: ['Sounds/2.mp3']
 				})
 			},
 
 			m: {
-				color: "orange",
+				color: randomrgb(),
 				sound: new Howl({
 				src: ['Sounds/2.mp3']
 				})
 			},
 
 			n: {
-				color: "orange",
+				color: randomrgb(),
 				sound: new Howl({
 				src: ['Sounds/2.mp3']
 				})
 			},
 
 			o: {
-				color: "green",
+				color: randomrgb(),
 				sound: new Howl({
 				src: ['Sounds/2.mp3']
 				})
 			},
 
 			p: {
-				color: "purple",
+				color: randomrgb(),
 				sound: new Howl({
 				src: ['Sounds/2.mp3']
 				})
 			},
 
 			q: {
-				color: "red",
+				color: randomrgb(),
 				sound: new Howl({
 				src: ['Sounds/3.mp3']
 				})
 			},
 
 			r: {
-				color: "orange",
+				color: randomrgb(),
 				sound: new Howl({
 				src: ['Sounds/3.mp3']
 				})
 			},
 
 			s: {
-				color: "green",
+				color: randomrgb(),
 				sound: new Howl({
 				src: ['Sounds/3.mp3']
 				})
 			},
 
 			t: {
-				color: "yellow",
+				color: randomrgb(),
 				sound: new Howl({
 				src: ['Sounds/3.mp3']
 				})
 			},
 
 			u: {
-				color: "white",
+				color: randomrgb(),
 				sound: new Howl({
 				src: ['Sounds/3.mp3']
 				})
 			},
 
 			v: {
-				color: "white",
+				color: randomrgb(),
 				sound: new Howl({
 				src: ['Sounds/3.mp3']
 				})
 			},
 
 			w: {
-				color: "orange",
+				color: randomrgb(),
 				sound: new Howl({
 				src: ['Sounds/3.mp3']
 				})
 			},
 
 			x: {
-				color: "red",
+				color: randomrgb(),
 				sound: new Howl({
 				src: ['Sounds/3.mp3']
 				})
 			},
 
 			y: {
-				color: "green",
+				color: randomrgb(),
 				sound: new Howl({
 				src: ['Sounds/3.mp3']
 				})
 			},
 
 			z: {
-				color: "purple",
+				color: randomrgb(),
 				sound: new Howl({
 				src: ['Sounds/3.mp3']
 				})
@@ -203,10 +209,11 @@
 				var maxPoint = new Point(view.size.width, view.size.height)
 				var randomPoint = Point.random();
 				var point = maxPoint * randomPoint;
-				var newcircle = new Path.Circle(point, 500);
+				var newcircle = new Path.Circle(point, 50);
 				newcircle.fillColor = keyData[event.key].color;
 				keyData[event.key].sound.play();
 				circles.push(newcircle);
+				text.content = "You pressed" + " " +event.key;
 			}
 		}
 			
@@ -215,9 +222,17 @@
 					 
 					for (var i = 0; i < circles.length; i++){
 						circles[i].fillColor.hue += 1;
-						circles[i].scale(.9);
+						circles[i].scale(.95);
 					}
 				}
+
+		
+		function randomrgb(){
+				var r = Math.floor(Math.random() *  256);
+				var g = Math.floor(Math.random() *  256);
+				var b = Math.floor(Math.random() *  256);
+				return "rgb(" + r + ", " + g + ", " + b + ")";
+		}
 
 							
 					
