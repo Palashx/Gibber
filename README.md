@@ -6,4 +6,4 @@ When the user press any key from a to z, a random circle appears on the screen a
 
 Here is a working sample of the application:
 
-                                                ![](working.gif)
+   ![](working.gif)
